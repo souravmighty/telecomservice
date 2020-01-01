@@ -44,7 +44,7 @@ public class CustomerAccount {
 
 	@Override
 	public String toString() {
-		return "Account Details [mobileNo=" + mobileNo + ", name=" + name + ", accountType=" + accountType + ", balance="
+		return "Account Details [Mobile No=" + mobileNo + ", Name=" + name + ", Account Type=" + accountType + ", Balance="
 				+ balance + "]";
 	}
 

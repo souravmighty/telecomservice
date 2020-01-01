@@ -35,5 +35,6 @@ public class CustomerAccountServiceImpl implements ICustomerAccountService {
 		CustomerAccount c=new CustomerAccount(mobileNo, name, accountType, initialBalance);
 		dao.createAccount(c);
 	}
+	
 
 }

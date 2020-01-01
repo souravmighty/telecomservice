@@ -63,6 +63,7 @@ public class TelcomUi {
 				double initialBalance=sc.nextDouble();
 				service.createAccount(mobileNo, name, accountType, initialBalance);
 				System.out.println("New account created successfully.");
+				System.out.println(service.findByMobileNo(mobileNo));
 			}
 			else if(choice==4)
 			{
