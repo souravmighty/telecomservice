@@ -49,6 +49,7 @@ public class TelcomUi {
 				System.out.println("Enter amount:");
 				double amount=sc.nextDouble();
 				service.rechargeAccount(c, amount);
+				System.out.println("Recharge done successfully.");
 				System.out.println(c);
 			}
 			else if(choice==3)
@@ -61,9 +62,9 @@ public class TelcomUi {
 				String accountType=sc.next();
 				System.out.println("Enter initial balance:");
 				double initialBalance=sc.nextDouble();
-				service.createAccount(mobileNo, name, accountType, initialBalance);
+				CustomerAccount c=service.createAccount(mobileNo, name, accountType, initialBalance);
 				System.out.println("New account created successfully.");
-				System.out.println(service.findByMobileNo(mobileNo));
+				System.out.println(c);
 			}
 			else if(choice==4)
 			{
@@ -83,7 +84,7 @@ public class TelcomUi {
 		}
 		catch(MobileNumberAlreadyExistsException e)
 		{
-			System.out.println("Mobile number already in use.Try choosing another number.");
+			System.out.println("Mobile number is already in use.Try choosing another number.");
 		}
 		catch(Throwable e)
 		{

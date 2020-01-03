@@ -7,13 +7,27 @@ import com.deloitte.telcom.exceptions.MobileNumberAlreadyExistsException;
 
 public class CustomerAccountServiceImpl implements ICustomerAccountService {
 	
-	ICustomerAccountDao dao;
+	private ICustomerAccountDao dao;
 	
 
 	public CustomerAccountServiceImpl(ICustomerAccountDao dao) {
 		super();
 		this.dao = dao;
 	}
+	
+	
+	@Override
+	public ICustomerAccountDao getDao() {
+		return dao;
+	}
+
+
+
+	public void setDao(ICustomerAccountDao dao) {
+		this.dao = dao;
+	}
+
+
 
 	@Override
 	public CustomerAccount findByMobileNo(String mobileNo) {
@@ -31,9 +45,12 @@ public class CustomerAccountServiceImpl implements ICustomerAccountService {
 	}
 
 	@Override
-	public void createAccount(String mobileNo, String name, String accountType, double initialBalance) {
-		CustomerAccount c=new CustomerAccount(mobileNo, name, accountType, initialBalance);
-		dao.createAccount(c);
+	public CustomerAccount createAccount(String mobileNo, String name, String accountType, double initialBalance) {
+		if(mobileNo==null ||mobileNo.length()!=10)
+		{
+			throw new IncorrectMobileNoException("Please enter a valid mobile number.");
+		}
+		return dao.createAccount(mobileNo, name, accountType, initialBalance);
 	}
 	
 

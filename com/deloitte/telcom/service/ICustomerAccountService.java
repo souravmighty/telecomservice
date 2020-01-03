@@ -1,5 +1,6 @@
 package com.deloitte.telcom.service;
 
+import com.deloitte.telcom.dao.ICustomerAccountDao;
 import com.deloitte.telcom.entities.CustomerAccount;
 
 public interface ICustomerAccountService {
@@ -8,7 +9,9 @@ public interface ICustomerAccountService {
 	
 	void rechargeAccount(CustomerAccount c,double amount);
 	
-	void createAccount(String mobileNo, String name, String accountType, double initialBalance);
+	CustomerAccount createAccount(String mobileNo, String name, String accountType, double initialBalance);
+
+	ICustomerAccountDao getDao();
 	
 
 }
